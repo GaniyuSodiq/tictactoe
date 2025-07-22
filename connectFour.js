@@ -1,6 +1,18 @@
 /*
+1/make the code your own
+2/write down what you beleive to the the pseudo code for connect four
+3/undertstand this code's pseudocode
+4/undertand the code in to to
+5/undertsand the article 
+6/finish this code
+7/recreate in on your own
+8/finish the tic tact toe game
+9/move to classes
+*/
+
+/*
 ** The Gameboard represents the state of the board
-** Each equare holds a Cell (defined later)
+** Each square holds a Cell (defined later)
 ** and we expose a dropToken method to be able to add Cells to squares
 */
 
