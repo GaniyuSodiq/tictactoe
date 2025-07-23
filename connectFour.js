@@ -40,19 +40,19 @@ function Gameboard() {
   for (let i = 0; i < rows; i++) {
     board[i] = []; // put an array into the board array | [[]]
     for (let j = 0; j < columns; j++) {
-      board[i].push(Cell()); // put value into the array that is inside the board array | [[]]
+      board[i].push(Cell()); // put value into the array that is inside the board array | [[0]]
         // the cell() can only return 2 types of values
         // one: the default value ie 0 with cell.getvalue() method 
         // two: the value from the any of the players with cell.addtoken(getactiveplayer().token)
-        // this loops 7 times | [[0], [0], [0], [0], [0], [0], [0]]
+        // this loops 7 times | [[0, 0, 0, 0, 0, 0, 0]]
     }
     // these whole thing loops 6 times - THEREBY CREATING THE BOARD WE NEED
-    // [[0], [0], [0], [0], [0], [0], [0]]
-    // [[0], [0], [0], [0], [0], [0], [0]]
-    // [[0], [0], [0], [0], [0], [0], [0]]
-    // [[0], [0], [0], [0], [0], [0], [0]]
-    // [[0], [0], [0], [0], [0], [0], [0]]
-    // [[0], [0], [0], [0], [0], [0], [0]]
+    // [[0, 0, 0, 0, 0, 0, 0]]
+    // [[0, 0, 0, 0, 0, 0, 0]]
+    // [[0, 0, 0, 0, 0, 0, 0]]
+    // [[0, 0, 0, 0, 0, 0, 0]]
+    // [[0, 0, 0, 0, 0, 0, 0]]
+    // [[0, 0, 0, 0, 0, 0, 0]]
     // and we use the cell() function to change the values of any cell and reload the board
   }
 
