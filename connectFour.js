@@ -10,10 +10,22 @@
 9/move to classes
 */
 
+// ⭐ 2/write down what you beleive to the the pseudo code for connect four
+// A: you drop a coin into the board/click a box in the board
+// B: you win if there are four of such coins/boxes side by side horizontally, vertically, or diagonally
+//
+// create a board of cells for the game
+// each cell should be able to identify the content of its next 4 cells horizontally, vertically, diagonally
+// there should be check for no2 when a user played 
+
+// ⭐ 3/undertstand this code's pseudocode
 /*
-** The Gameboard represents the state of the board
-** Each square holds a Cell (defined later)
-** and we expose a dropToken method to be able to add Cells to squares
+** A: The Gameboard represents the state of the board
+//    A1 Create a 2d array that will represent the state of the game board
+
+** B: Each square holds a Cell (defined later)
+
+** C: and we expose a dropToken method to be able to add Cells to squares
 */
 
 function Gameboard() {
@@ -71,7 +83,7 @@ function Gameboard() {
 ** A Cell represents one "square" on the board and can have one of
 ** 0: no token is in the square,
 ** 1: Player One's token,
-** 2: Player 2's token
+** 2: Player two's token
 */
 
 function Cell() {
