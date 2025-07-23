@@ -2,12 +2,13 @@
 1/make the code your own
 2/write down what you beleive to the the pseudo code for connect four
 3/undertstand this code's pseudocode
-4/undertand the code in to to
-5/undertsand the article 
+4/undertand the code in to to - understand each line of the code
+5/undertsand the article and redo this code on your own
 6/finish this code
 7/recreate in on your own
 8/finish the tic tact toe game
-9/move to classes
+9/read and own 3 other people's complete solutions. redo their method on your own 
+10/move to classes
 */
 
 // ⭐ 2/write down what you beleive to the the pseudo code for connect four
@@ -41,33 +42,48 @@ function Gameboard() {
     board[i] = []; // put an array into the board array | [[]]
     for (let j = 0; j < columns; j++) {
       board[i].push(Cell()); // put value into the array that is inside the board array | [[0]]
-        // the cell() can only return 2 types of values
-        // one: the default value ie 0 with cell.getvalue() method 
-        // two: the value from the any of the players with cell.addtoken(getactiveplayer().token)
-        // this loops 7 times | [[0, 0, 0, 0, 0, 0, 0]]
+      // the cell() can only return 2 types of values
+      // one: the default value ie 0 with cell.getvalue() method 
+      // two: the value from the any of the players with cell.addtoken(getactiveplayer().token)
+      // this loops 7 times | [[0, 0, 0, 0, 0, 0, 0]]
     }
-    // these whole thing loops 6 times - THEREBY CREATING THE BOARD WE NEED
-    // [[0, 0, 0, 0, 0, 0, 0]]
-    // [[0, 0, 0, 0, 0, 0, 0]]
-    // [[0, 0, 0, 0, 0, 0, 0]]
-    // [[0, 0, 0, 0, 0, 0, 0]]
-    // [[0, 0, 0, 0, 0, 0, 0]]
-    // [[0, 0, 0, 0, 0, 0, 0]]
+    // these whole thing loops 6 times - THEREBY CREATING THE BOARD WE NEED.... 
+    // [[0, 0, 0, 0, 0, 0, 0],
+    //  [0, 0, 0, 0, 0, 0, 0],
+    //  [0, 0, 0, 0, 0, 0, 0],
+    //  [0, 0, 0, 0, 0, 0, 0],
+    //  [0, 0, 0, 0, 0, 0, 0],
+    //  [0, 0, 0, 0, 0, 0, 0]]
     // and we use the cell() function to change the values of any cell and reload the board
   }
 
   // This will be the method of getting the entire board that our
   // UI will eventually need to render it.
-  const getBoard = () => board;
+  const getBoard = () => board; // to be able to share the board / return the board as obj
 
+  // board = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0]]
+  // user click/drops coin into a column by giving a column number
+  // we need to find this column number in each row and pick all the columns with 0 value
   // In order to drop a token, we need to find what the lowest point of the
   // selected column is, *then* change that cell's value to the player number
   const dropToken = (column, player) => {
     // Our board's outermost array represents the row,
-    // so we need to loop through the rows, starting at row 0,
+    // and in each array row we have 7 items default each default to 0
+    // so we need to loop through the rows, starting at row 0 (the first row),
     // find all the rows that don't have a token, then take the
-    // last one, which will represent the bottom-most empty cell
-    const availableCells = board.filter((row) => row[column].getValue() === 0).map(row => row[column]);
+    // last one, which will represent the bottom-most empty cell        
+    // board = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0]]
+    const availableCellsInRow = board.filter((row) => row[column].getValue() === 0)
+    // loop through all the rows, in each find column(A) with value =0 and return the rows  
+    // loop through each row and find column A in each row that the value is 0
+    // in other words, return all the rows that have this particulr column value = 0
+
+    console.log(availableCellsInRow)
+
+
+    const availableCells = availableCellsInRow.map(row => row[column]);
+
+    // const availableCells = board.filter((row) => row[column].getValue() === 0).map(row => row[column]);
 
     // If no cells make it through the filter, 
     // the move is invalid. Stop execution.
