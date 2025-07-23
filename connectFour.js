@@ -21,7 +21,7 @@
 // ⭐ 3/undertstand this code's pseudocode
 /*
 ** A: The Gameboard represents the state of the board
-//    A1 Create a 2d array that will represent the state of the game board
+//    A1: Create a 2d array that will represent the state of the game board
 
 ** B: Each square holds a Cell (defined later)
 
@@ -31,17 +31,29 @@
 function Gameboard() {
   const rows = 6;
   const columns = 7;
-  const board = [];
+  const board = []; // | [  ]
 
-  // Create a 2d array that will represent the state of the game board
+  // A1: Create a 2d array that will represent the state of the game board
   // For this 2d array, row 0 will represent the top row and
   // column 0 will represent the left-most column.
   // This nested-loop technique is a simple and common way to create a 2d array.
   for (let i = 0; i < rows; i++) {
-    board[i] = [];
+    board[i] = []; // put an array into the board array | [[]]
     for (let j = 0; j < columns; j++) {
-      board[i].push(Cell());
+      board[i].push(Cell()); // put value into the array that is inside the board array | [[]]
+        // the cell() can only return 2 types of values
+        // one: the default value ie 0 with cell.getvalue() method 
+        // two: the value from the any of the players with cell.addtoken(getactiveplayer().token)
+        // this loops 7 times | [[0], [0], [0], [0], [0], [0], [0]]
     }
+    // these whole thing loops 6 times - THEREBY CREATING THE BOARD WE NEED
+    // [[0], [0], [0], [0], [0], [0], [0]]
+    // [[0], [0], [0], [0], [0], [0], [0]]
+    // [[0], [0], [0], [0], [0], [0], [0]]
+    // [[0], [0], [0], [0], [0], [0], [0]]
+    // [[0], [0], [0], [0], [0], [0], [0]]
+    // [[0], [0], [0], [0], [0], [0], [0]]
+    // and we use the cell() function to change the values of any cell and reload the board
   }
 
   // This will be the method of getting the entire board that our
@@ -97,6 +109,9 @@ function Cell() {
   // How we will retrieve the current value of this cell through closure
   const getValue = () => value;
 
+  // THE CELLS CAN ONLY CONTAIN 2 TYPES OF VALUES
+  // ONE: THE DEFAILT VALUE IE 0 with Cell.getValue() method
+  // TWO: THE VALUE FROM THE PLAYER with Cell.addToken(getActivePlayer().token)
   return {
     addToken,
     getValue
