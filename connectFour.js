@@ -100,7 +100,7 @@ function Gameboard() {
     // Otherwise, I have a valid cell, the last one in the filtered array
     // availableCells = [0, 0, 0]
     const lowestRow = availableCells.length - 1;
-    board[lowestRow][column].addToken(player);
+    board[lowestRow][column].addToken(player); // now add player token(1 or 2) into the lowest column cell
   };
 
   // This method will be used to print our board to the console.
@@ -108,7 +108,22 @@ function Gameboard() {
   // but we won't need it after we build our UI
   const printBoard = () => {
     const boardWithCellValues = board.map((row) => row.map((cell) => cell.getValue()))
+    // basically getting each row...
+    // [[0, 0, 0, 0, 0, 0, 0],
+    //  [0, 0, 0, 0, 0, 0, 0],
+    //  [0, 0, 0, 0, 0, 0, 0],
+    //  [0, 0, 1, 0, 2, 0, 0]
+    //  [0, 0, 1, 0, 2, 0, 0]
+    //  [0, 0, 1, 0, 2, 0, 0]] 
+    // then returning the values of each cell 
+
     console.log(boardWithCellValues);
+    //  [0, 0, 0, 0, 0, 0, 0]
+    //  [0, 0, 0, 0, 0, 0, 0]
+    //  [0, 0, 0, 0, 0, 0, 0]
+    //  [0, 0, 1, 0, 2, 0, 0]
+    //  [0, 0, 1, 0, 2, 0, 0]
+    //  [0, 0, 1, 0, 2, 0, 0]
   };
 
   // Here, we provide an interface for the rest of our
