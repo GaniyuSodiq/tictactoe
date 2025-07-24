@@ -29,6 +29,37 @@
 ** C: and we expose a dropToken method to be able to add Cells to squares
 */
 
+
+
+/*
+** A Cell represents one "square" on the board and can have one of
+** 0: no token is in the square,
+** 1: Player One's token,
+** 2: Player two's token
+*/
+// ⭐⭐⭐ Cell() - FUNCTION TO CONTROL WHAT GOES INTO EACH CELL/SLOT
+function Cell() {
+  let value = 0;
+
+  // Accept a player's token to change the value of the cell
+  const addToken = (player) => {
+    value = player;
+  };
+
+  // How we will retrieve the current value of this cell through closure
+  const getValue = () => value;
+
+  // THE CELLS CAN ONLY CONTAIN 2 TYPES OF VALUES
+  // ONE: THE DEFAILT VALUE IE 0 with Cell.getValue() method
+  // TWO: THE VALUE FROM THE PLAYER with Cell.addToken(getActivePlayer().token)
+  return {
+    addToken,
+    getValue
+  };
+}
+
+
+// ⭐⭐⭐ Gameboard() - FUNCTION TO PROVIDE THE GAMEBOARD AND HAVE CELLS 
 function Gameboard() {
   const rows = 6;
   const columns = 7;
@@ -131,62 +162,26 @@ function Gameboard() {
   return { getBoard, dropToken, printBoard };
 }
 
-/*
-** A Cell represents one "square" on the board and can have one of
-** 0: no token is in the square,
-** 1: Player One's token,
-** 2: Player two's token
-*/
-
-function Cell() {
-  let value = 0;
-
-  // Accept a player's token to change the value of the cell
-  const addToken = (player) => {
-    value = player;
-  };
-
-  // How we will retrieve the current value of this cell through closure
-  const getValue = () => value;
-
-  // THE CELLS CAN ONLY CONTAIN 2 TYPES OF VALUES
-  // ONE: THE DEFAILT VALUE IE 0 with Cell.getValue() method
-  // TWO: THE VALUE FROM THE PLAYER with Cell.addToken(getActivePlayer().token)
-  return {
-    addToken,
-    getValue
-  };
-}
 
 /* 
 ** The GameController will be responsible for controlling the 
 ** flow and state of the game's turns, as well as whether
 ** anybody has won the game
 */
-function GameController(
-  playerOneName = "Player One",
-  playerTwoName = "Player Two"
-) {
+function GameController(playerOneName = "Player One", playerTwoName = "Player Two") {
   const board = Gameboard();
+  const players = [{ name: playerOneName, token: 1 }, { name: playerTwoName, token: 2 }];
 
-  const players = [
-    {
-      name: playerOneName,
-      token: 1
-    },
-    {
-      name: playerTwoName,
-      token: 2
-    }
-  ];
-
+  // determine active player
   let activePlayer = players[0];
 
   const switchPlayerTurn = () => {
     activePlayer = activePlayer === players[0] ? players[1] : players[0];
   };
+
   const getActivePlayer = () => activePlayer;
 
+  // play a new round
   const printNewRound = () => {
     board.printBoard();
     console.log(`${getActivePlayer().name}'s turn.`);
