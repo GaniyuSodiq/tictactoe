@@ -62,7 +62,8 @@ function Gameboard() {
   const getBoard = () => board; // to be able to share the board / return the board as obj
 
   // board = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0]]
-  // user click/drops coin into a column by giving a column number
+  // user click/drops coin into a column by giving a column number. 
+  // we need to find the lowest row in this column
   // we need to find this column number in each row and pick all the columns with 0 value
   // In order to drop a token, we need to find what the lowest point of the
   // selected column is, *then* change that cell's value to the player number
@@ -78,10 +79,17 @@ function Gameboard() {
     // loop through each row and find column A in each row that the value is 0
     // in other words, return all the rows that have this particulr column value = 0
 
-    console.log(availableCellsInRow)
+    // console.log(availableCellsInRow)
 
 
     const availableCells = availableCellsInRow.map(row => row[column]);
+    // returns an array of all the row[column] 0s rom the filtered available cells
+    // availableCellsInRow =  [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0]]
+    // Basically turning the arrays in array to a single array
+    // availableCells = [0, 0, 0]
+
+    // console.log(availableCells)
+
 
     // const availableCells = board.filter((row) => row[column].getValue() === 0).map(row => row[column]);
 
@@ -90,6 +98,7 @@ function Gameboard() {
     if (!availableCells.length) return;
 
     // Otherwise, I have a valid cell, the last one in the filtered array
+    // availableCells = [0, 0, 0]
     const lowestRow = availableCells.length - 1;
     board[lowestRow][column].addToken(player);
   };
