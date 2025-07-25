@@ -2,8 +2,13 @@
 1/make the code your own
 2/write down what you beleive to the the pseudo code for connect four
 3/undertstand this code's pseudocode
-4/undertand the code in to to - understand each line of the code
-5/undertsand the article and redo this code on your own
+// CODES TO TATTOO ON YOUR SOUL 
+// ==1 FACTORY FUNCTION NOTE, 
+// ==2 TOMAS MODULAR JS, 
+// ==3 2ND YT PLASYLIST IDEA, 
+// ==4 LAST IDEA INCLUDING STATS AND PUB SUB
+4/undertand the code in to to - understand each line of the code. READ 3 TIMES
+5/undertsand the article and redo this code on your own. READ AND RE DO 2 EACH
 6/finish this code
 7/recreate in on your own
 8/finish the tic tact toe game
@@ -12,7 +17,8 @@
 */
 
 // ⭐ 2/write down what you beleive to the the pseudo code for connect four
-// A: you drop a coin into the board/click a box in the board
+// A: you drop a coin into the board/ pick a column / drop vertically
+//      
 // B: you win if there are four of such coins/boxes side by side horizontally, vertically, or diagonally
 //
 // create a board of cells for the game
@@ -24,7 +30,7 @@
 ** A: The Gameboard represents the state of the board
 //    A1: Create a 2d array that will represent the state of the game board
 
-** B: Each square holds a Cell (defined later)
+** B: Each square holds a Cell that can be 0 1 or 2
 
 ** C: and we expose a dropToken method to be able to add Cells to squares
 */
