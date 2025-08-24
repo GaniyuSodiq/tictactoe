@@ -87,7 +87,7 @@ function Gameboard() {
     // these whole thing loops 6 times - THEREBY CREATING THE BOARD WE NEED.... 
     // [[0, 0, 0, 0, 0, 0, 0],
     //  [0, 0, 0, 0, 0, 0, 0],
-    //  [0, 0, 0, 0, 0, 0, 0],
+    //  [0, 0, 0, 0, 0, 0, 0],   
     //  [0, 0, 0, 0, 0, 0, 0],
     //  [0, 0, 0, 0, 0, 0, 0],
     //  [0, 0, 0, 0, 0, 0, 0]]

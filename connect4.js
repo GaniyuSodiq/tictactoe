@@ -86,3 +86,13 @@ function GameController(playerOneName = "Player One", playerTwoName = "Player Tw
 }
 
 const game = GameController();
+
+
+// i like the way the author of this code break down the steps 
+// of the connect four and code it
+
+// explain how he break it down and how i can use the breakdown to tackle 
+// other projects
+
+// take for a simple example the js project to buld a quote generator
+// i have the html css here
