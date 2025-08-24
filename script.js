@@ -33,8 +33,11 @@ function Gameboard() {
         }
     }
 
-    const dropToken = (token, position) => {
+    const dropToken = (token, pos) => {
+        const positionToPlayInto = gameboard.filter(row => row.filter(cell => cell.getPosition() == pos))
+        console.log(positionToPlayInto)
 
+        gameboard[0][1].addToken(token)
     }
 
     const printBoard = ()=>{
@@ -42,7 +45,7 @@ function Gameboard() {
         console.log(displayBoard)
     }
 
-    return {gameboard, rows, printBoard}
+    return {gameboard, rows, printBoard, dropToken}
 }
 
 const Players = {
@@ -56,3 +59,5 @@ const Gamecontroller = {
 const game = Gameboard()
 
 console.log(game.printBoard())
+
+console.log(game.dropToken("A", 3))
