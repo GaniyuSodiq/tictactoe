@@ -1,5 +1,17 @@
+function Cell() {
+    let value = 0
+
+    const getValue = () => value
+
+    const addToken = (player)=>{
+        value = player
+    }
+
+    return {getValue, addToken}
+}
+
 const Gameboard = {
-    gameboard : [],
+    gameboard: [],
 }
 
 const Players = {
@@ -7,5 +19,5 @@ const Players = {
 }
 
 const Gamecontroller = {
-    
+
 }
