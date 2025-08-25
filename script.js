@@ -3,7 +3,7 @@ function Cell() {
 
     let position = 0
 
-    const getValue = () => value
+    const getToken = () => value
 
     const getPosition = () => position
 
@@ -15,7 +15,7 @@ function Cell() {
         position = newPosition
     }
 
-    return { getValue, addToken, getPosition, addPosition }
+    return { getToken, addToken, getPosition, addPosition }
 }
 
 function Gameboard() {
@@ -37,11 +37,19 @@ function Gameboard() {
         const positionToPlayInto = gameboard.filter(row => row.filter(cell => cell.getPosition() == pos))
         console.log(positionToPlayInto)
 
-        gameboard[0][1].addToken(token)
+        gameboard.forEach(row => {
+            row.forEach(column => {
+                if (column.getPosition() == pos){
+                    column.addToken(token)
+                }
+            })
+        })
+
+        // gameboard[0][1].addToken(token)
     }
 
     const printBoard = ()=>{
-        const displayBoard = gameboard.map(row => row.map(cell => cell.getPosition()))
+        const displayBoard = gameboard.map(row => row.map(cell => cell.getToken()))
         console.log(displayBoard)
     }
 
@@ -60,4 +68,6 @@ const game = Gameboard()
 
 console.log(game.printBoard())
 
-console.log(game.dropToken("A", 3))
+console.log(game.dropToken("X", 3))
+
+console.log(game.printBoard())
