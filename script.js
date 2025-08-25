@@ -40,7 +40,12 @@ function Gameboard() {
         gameboard.forEach(row => {
             row.forEach(column => {
                 if (column.getPosition() == pos) {
-                    column.addToken(token)
+                    if (column.getToken() == null) {
+                        column.addToken(token)
+                    } else {
+                        console.log(`Position: ${pos} is not empty, play into another position`)
+                        return
+                    }
                 }
             })
         })
@@ -59,7 +64,15 @@ function players(playerOne = "Player One", playerTwo = "Player Two") {
     return { player }
 }
 
-function Gamecontroller () {
+// const switchPlayer = () => {
+//     const getPlayers = players()
+//     let activePlayer = getPlayers.player[0]
+//     activePlayer = activePlayer === getPlayers.player[0] ? getPlayers.player[1] : getPlayers.player[0]
+//     const getActivePlayer = () => activePlayer
+//     return { getActivePlayer }
+// }
+
+function Gamecontroller() {
     const board = Gameboard()
     const getPlayers = players()
     let activePlayer = getPlayers.player[0]
@@ -67,7 +80,7 @@ function Gamecontroller () {
         activePlayer = activePlayer === getPlayers.player[0] ? getPlayers.player[1] : getPlayers.player[0]
     }
 
-    const playRound = (position)=>{
+    const playRound = (position) => {
         console.log(`${activePlayer.name} played into ${position} with ${activePlayer.token}`)
         board.dropToken(activePlayer.token, position)
         board.printBoard()
@@ -75,11 +88,8 @@ function Gamecontroller () {
         console.log(`Next player is ${activePlayer.name}`)
     }
 
-    return {playRound}
+    return { playRound }
 }
-
-
-
 
 const game = Gamecontroller()
 
