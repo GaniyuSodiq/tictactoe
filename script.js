@@ -54,20 +54,38 @@ function Gameboard() {
     return { printBoard, dropToken }
 }
 
-function getPlayers (playerOne = "Player One", playerTwo = "Player Two") {
-    const player = [{name: playerOne, token: "X"}, {name: playerTwo, token: "O"}]
+function players(playerOne = "Player One", playerTwo = "Player Two") {
+    const player = [{ name: playerOne, token: "X" }, { name: playerTwo, token: "O" }]
     return { player }
 }
 
-const Gamecontroller = {
+function Gamecontroller () {
+    const board = Gameboard()
+    const getPlayers = players()
+    let activePlayer = getPlayers.player[0]
+    const switchPlayer = ()=>{
+        activePlayer = activePlayer === getPlayers.player[0] ? getPlayers.player[1] : getPlayers.player[0]
+    }
 
+    const playRound = (position)=>{
+        console.log(`${activePlayer.name} played into ${position} with ${activePlayer.token}`)
+        board.dropToken(activePlayer.token, position)
+        board.printBoard()
+        switchPlayer()
+        console.log(`Next player is ${activePlayer.name}`)
+    }
+
+    return {playRound}
 }
 
-const game = Gameboard()
 
-game.dropToken("X", 3)
 
-game.printBoard()
 
-// getPlayers("Wale", "Jade")
-console.log(getPlayers("Wale", "Jade").player[0].name)
+const game = Gamecontroller()
+
+// game.dropToken("X", 3)
+
+// game.printBoard()
+
+// const playrs = getPlayers("Wale", "Jade")
+// console.log(playrs.player[0].name)
