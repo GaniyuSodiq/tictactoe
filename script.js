@@ -11,7 +11,7 @@ function Cell() {
         value = player
     }
 
-    const addPosition = (newPosition)=>{
+    const addPosition = (newPosition) => {
         position = newPosition
     }
 
@@ -19,8 +19,8 @@ function Cell() {
 }
 
 function Gameboard() {
-    let rows = 3
-    let columns = 3
+    const rows = 3
+    const columns = 3
     const gameboard = []
     let positionAdder = 0
 
@@ -28,36 +28,35 @@ function Gameboard() {
         gameboard.push([])
         for (let j = 0; j < columns; j++) {
             gameboard[i].push(Cell())
-            positionAdder ++
+            positionAdder++
             gameboard[i][j].addPosition(positionAdder)
         }
     }
 
-    const dropToken = (token, pos) => {
-        const positionToPlayInto = gameboard.filter(row => row.filter(cell => cell.getPosition() == pos))
-        console.log(positionToPlayInto)
+    const displayBoard = gameboard.map(row => row.map(cell => cell.getPosition()))
+    console.log(displayBoard)
 
+    const dropToken = (token, pos) => {
         gameboard.forEach(row => {
             row.forEach(column => {
-                if (column.getPosition() == pos){
+                if (column.getPosition() == pos) {
                     column.addToken(token)
                 }
             })
         })
-
-        // gameboard[0][1].addToken(token)
     }
 
-    const printBoard = ()=>{
+    const printBoard = () => {
         const displayBoard = gameboard.map(row => row.map(cell => cell.getToken()))
         console.log(displayBoard)
     }
 
-    return {gameboard, rows, printBoard, dropToken}
+    return { printBoard, dropToken }
 }
 
-const Players = {
-
+function getPlayers (playerOne = "Player One", playerTwo = "Player Two") {
+    const player = [{name: playerOne, token: "X"}, {name: playerTwo, token: "O"}]
+    return { player }
 }
 
 const Gamecontroller = {
@@ -66,8 +65,9 @@ const Gamecontroller = {
 
 const game = Gameboard()
 
-console.log(game.printBoard())
+game.dropToken("X", 3)
 
-console.log(game.dropToken("X", 3))
+game.printBoard()
 
-console.log(game.printBoard())
+// getPlayers("Wale", "Jade")
+console.log(getPlayers("Wale", "Jade").player[0].name)
