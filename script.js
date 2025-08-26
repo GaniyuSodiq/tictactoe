@@ -44,6 +44,8 @@ function Gameboard() {
                         column.addToken(token)
                     } else {
                         console.log(`Position: ${pos} is not empty, play into another position`)
+                        // switcher.switchPlayer().getActivePlayer()
+                        switcher.switchPlayer()
                         return
                     }
                 }
@@ -64,28 +66,37 @@ function players(playerOne = "Player One", playerTwo = "Player Two") {
     return { player }
 }
 
-// const switchPlayer = () => {
-//     const getPlayers = players()
-//     let activePlayer = getPlayers.player[0]
-//     activePlayer = activePlayer === getPlayers.player[0] ? getPlayers.player[1] : getPlayers.player[0]
-//     const getActivePlayer = () => activePlayer
-//     return { getActivePlayer }
-// }
+
+const switcher = (function passPlayers() {
+    const getPlayers = players()
+    let activePlayer = getPlayers.player[0]
+    const switchPlayer = () => {
+        activePlayer = activePlayer === getPlayers.player[0] ? getPlayers.player[1] : getPlayers.player[0]
+        const getActivePlayer = () => activePlayer
+        return { getActivePlayer }
+    }
+    return {switchPlayer}
+})()
+
+//console.log(switcher.switchPlayer().getActivePlayer())
+//console.log(switcher.switchPlayer().getActivePlayer())
 
 function Gamecontroller() {
     const board = Gameboard()
-    const getPlayers = players()
-    let activePlayer = getPlayers.player[0]
-    const switchPlayer = ()=>{
-        activePlayer = activePlayer === getPlayers.player[0] ? getPlayers.player[1] : getPlayers.player[0]
-    }
-
+    // const getPlayers = players()
+    // let activePlayer = getPlayers.player[0]
+    // const switchPlayer = () => {
+    //     activePlayer = activePlayer === getPlayers.player[0] ? getPlayers.player[1] : getPlayers.player[0]
+    // }
+    let activeP = switcher.switchPlayer().getActivePlayer()
+    const getSwitchPlayer = ()=> activeP = switcher.switchPlayer().getActivePlayer()
+    
     const playRound = (position) => {
-        console.log(`${activePlayer.name} played into ${position} with ${activePlayer.token}`)
-        board.dropToken(activePlayer.token, position)
+        console.log(`${activeP.name} played into ${position} with ${activeP.token}`)
+        board.dropToken(activeP.token, position)
         board.printBoard()
-        switchPlayer()
-        console.log(`Next player is ${activePlayer.name}`)
+        getSwitchPlayer()
+        console.log(`Next player is ${activeP.name}`)
     }
 
     return { playRound }
