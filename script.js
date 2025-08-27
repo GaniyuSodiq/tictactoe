@@ -42,7 +42,175 @@ function Gameboard() {
                 if (column.getPosition() == pos) {
                     if (column.getToken() == null) {
                         column.addToken(token)
-                        // check for winner
+                        let r1 = 0; let r2 = 0; let r3 = 0;
+                        let c1 = 0; let c2 = 0; let c3 = 0;
+                        let d1 = 0; let d2 = 0;
+                        gameboard.forEach(row => {
+                            row.forEach(column => {
+                                // ROW 1 BEGINS
+                                if ((column.getPosition() == 1 && column.getToken() == token)) {
+                                    r1++
+                                    if (r1 == 3) {
+                                        console.log(`We have a winner: ${token} wins`)
+                                    }
+                                }
+                                if ((column.getPosition() == 2 && column.getToken() == token)) {
+                                    r1++
+                                    if (r1 == 3) {
+                                        console.log(`We have a winner: ${token} wins`)
+                                    }
+                                }
+                                if ((column.getPosition() == 3 && column.getToken() == token)) {
+                                    r1++
+                                    if (r1 == 3) {
+                                        console.log(`We have a winner: ${token} wins`)
+                                    }
+                                }
+                                // ROW 1 ENDS
+
+                                // ROW 2 BEGINS
+                                if ((column.getPosition() == 4 && column.getToken() == token)) {
+                                    r2++
+                                    if (r2 == 3) {
+                                        console.log(`We have a winner: ${token} wins`)
+                                    }
+                                }
+                                if ((column.getPosition() == 5 && column.getToken() == token)) {
+                                    r2++
+                                    if (r2 == 3) {
+                                        console.log(`We have a winner: ${token} wins`)
+                                    }
+                                }
+                                if ((column.getPosition() == 6 && column.getToken() == token)) {
+                                    r2++
+                                    if (r2 == 3) {
+                                        console.log(`We have a winner: ${token} wins`)
+                                    }
+                                }
+                                // ROW 2 ENDS
+                                // ROW 3 BEGINS
+                                if ((column.getPosition() == 7 && column.getToken() == token)) {
+                                    r3++
+                                    if (r3 == 3) {
+                                        console.log(`We have a winner: ${token} wins`)
+                                    }
+                                }
+                                if ((column.getPosition() == 8 && column.getToken() == token)) {
+                                    r3++
+                                    if (r3 == 3) {
+                                        console.log(`We have a winner: ${token} wins`)
+                                    }
+                                }
+                                if ((column.getPosition() == 9 && column.getToken() == token)) {
+                                    r3++
+                                    if (r3 == 3) {
+                                        console.log(`We have a winner: ${token} wins`)
+                                    }
+                                }
+                                // ROW 3 ENDS
+
+                                // COLUMN 1 BEGINS
+                                if ((column.getPosition() == 1 && column.getToken() == token)) {
+                                    c1++
+                                    if (c1 == 3) {
+                                        console.log(`We have a winner: ${token} wins`)
+                                    }
+                                }
+                                if ((column.getPosition() == 4 && column.getToken() == token)) {
+                                    c1++
+                                    if (c1 == 3) {
+                                        console.log(`We have a winner: ${token} wins`)
+                                    }
+                                }
+                                if ((column.getPosition() == 7 && column.getToken() == token)) {
+                                    c1++
+                                    if (c1 == 3) {
+                                        console.log(`We have a winner: ${token} wins`)
+                                    }
+                                }
+                                // COLUMN 1 ENDS
+                                // COLUMN 2 BEGINS
+                                if ((column.getPosition() == 2 && column.getToken() == token)) {
+                                    c2++
+                                    if (c2 == 3) {
+                                        console.log(`We have a winner: ${token} wins`)
+                                    }
+                                }
+                                if ((column.getPosition() == 5 && column.getToken() == token)) {
+                                    c2++
+                                    if (c2 == 3) {
+                                        console.log(`We have a winner: ${token} wins`)
+                                    }
+                                }
+                                if ((column.getPosition() == 8 && column.getToken() == token)) {
+                                    c2++
+                                    if (c2 == 3) {
+                                        console.log(`We have a winner: ${token} wins`)
+                                    }
+                                }
+                                // COLUMN 2 ENDS
+                                // COLUMN 3 BEGINS
+                                if ((column.getPosition() == 3 && column.getToken() == token)) {
+                                    c3++
+                                    if (c3 == 3) {
+                                        console.log(`We have a winner: ${token} wins`)
+                                    }
+                                }
+                                if ((column.getPosition() == 6 && column.getToken() == token)) {
+                                    c3++
+                                    if (c3 == 3) {
+                                        console.log(`We have a winner: ${token} wins`)
+                                    }
+                                }
+                                if ((column.getPosition() == 9 && column.getToken() == token)) {
+                                    c3++
+                                    if (c3 == 3) {
+                                        console.log(`We have a winner: ${token} wins`)
+                                    }
+                                }
+                                // COLUMN 3 ENDS
+                                // DIAGONAL 1 BEGINS
+                                if ((column.getPosition() == 1 && column.getToken() == token)) {
+                                    d1++
+                                    if (d1 == 3) {
+                                        console.log(`We have a winner: ${token} wins`)
+                                    }
+                                }
+                                if ((column.getPosition() == 5 && column.getToken() == token)) {
+                                    d1++
+                                    if (d1 == 3) {
+                                        console.log(`We have a winner: ${token} wins`)
+                                    }
+                                }
+                                if ((column.getPosition() == 9 && column.getToken() == token)) {
+                                    d1++
+                                    if (d1 == 3) {
+                                        console.log(`We have a winner: ${token} wins`)
+                                    }
+                                }
+                                // DIAGONAL 1 ENDS
+                                // DIAGONAL 2 BEGINS
+                                if ((column.getPosition() == 3 && column.getToken() == token)) {
+                                    d2++
+                                    if (d2 == 3) {
+                                        console.log(`We have a winner: ${token} wins`)
+                                    }
+                                }
+                                if ((column.getPosition() == 5 && column.getToken() == token)) {
+                                    d2++
+                                    if (d2 == 3) {
+                                        console.log(`We have a winner: ${token} wins`)
+                                    }
+                                }
+                                if ((column.getPosition() == 7 && column.getToken() == token)) {
+                                    d2++
+                                    if (d2 == 3) {
+                                        console.log(`We have a winner: ${token} wins`)
+                                    }
+                                }
+                                // DIAGONAL 2 ENDS
+                            })
+                        })
                     } else {
                         console.log(`Position: ${pos} is not empty, play into another position`)
                         switcher.switchPlayer()
