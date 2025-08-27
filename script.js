@@ -51,7 +51,8 @@ function Gameboard() {
                                 if ((column.getPosition() == 1 && column.getToken() == token)) {
                                     r1++
                                     if (r1 == 3) {
-                                        console.log(`We have a winner: ${token} wins`)
+                                        console.log(`${switcher.getActivePlayer().name} with Token: ${token} is the winner`)
+                                        
                                     }
                                 }
                                 if ((column.getPosition() == 2 && column.getToken() == token)) {
@@ -88,6 +89,7 @@ function Gameboard() {
                                     }
                                 }
                                 // ROW 2 ENDS
+
                                 // ROW 3 BEGINS
                                 if ((column.getPosition() == 7 && column.getToken() == token)) {
                                     r3++
@@ -129,6 +131,7 @@ function Gameboard() {
                                     }
                                 }
                                 // COLUMN 1 ENDS
+
                                 // COLUMN 2 BEGINS
                                 if ((column.getPosition() == 2 && column.getToken() == token)) {
                                     c2++
@@ -149,6 +152,7 @@ function Gameboard() {
                                     }
                                 }
                                 // COLUMN 2 ENDS
+
                                 // COLUMN 3 BEGINS
                                 if ((column.getPosition() == 3 && column.getToken() == token)) {
                                     c3++
@@ -169,6 +173,7 @@ function Gameboard() {
                                     }
                                 }
                                 // COLUMN 3 ENDS
+
                                 // DIAGONAL 1 BEGINS
                                 if ((column.getPosition() == 1 && column.getToken() == token)) {
                                     d1++
@@ -189,6 +194,7 @@ function Gameboard() {
                                     }
                                 }
                                 // DIAGONAL 1 ENDS
+
                                 // DIAGONAL 2 BEGINS
                                 if ((column.getPosition() == 3 && column.getToken() == token)) {
                                     d2++
@@ -237,12 +243,12 @@ function players(playerOne = "Player One", playerTwo = "Player Two") {
 const switcher = (function passPlayers() {
     const getPlayers = players()
     let activePlayer = getPlayers.player[1]
+    const getActivePlayer = () => activePlayer
     const switchPlayer = () => {
         activePlayer = activePlayer === getPlayers.player[0] ? getPlayers.player[1] : getPlayers.player[0]
-        const getActivePlayer = () => activePlayer
         return { getActivePlayer }
     }
-    return { switchPlayer }
+    return { switchPlayer, getActivePlayer }
 })()
 
 //console.log(switcher.switchPlayer().getActivePlayer())
