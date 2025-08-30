@@ -31,6 +31,8 @@ function Gameboard() {
 
         const availableCellsInRow = board.filter((row) => row[column].getValue() === 0)
 
+        // const availableBox = gameboard.filter(row => row.filter(column => column.getPosition() == pos && column.getToken() == null))
+
         const availableCells = availableCellsInRow.map(row => row[column]);
 
         if (!availableCells.length) return;

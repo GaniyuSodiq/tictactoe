@@ -52,7 +52,7 @@ function Gameboard() {
                                     r1++
                                     if (r1 == 3) {
                                         console.log(`${switcher.getActivePlayer().name} with Token: ${token} is the winner`)
-                                        
+
                                     }
                                 }
                                 if ((column.getPosition() == 2 && column.getToken() == token)) {
@@ -215,8 +215,25 @@ function Gameboard() {
                                     }
                                 }
                                 // DIAGONAL 2 ENDS
+
+                                // DRAW
+
                             })
                         })
+                        const drawer = function drawFinder() {
+                            let draw = 0
+                            gameboard.forEach(row => {
+                                    row.forEach(column => {
+                                        if (column.getToken() == null) {
+                                            draw++
+                                        }
+                                    })
+                            })
+                            console.log(draw)
+                            if(draw == 0){
+                                console.log(`THIS ROUND IS A DRAW!!!`)
+                            }
+                        }()
                     } else {
                         console.log(`Position: ${pos} is not empty, play into another position`)
                         switcher.switchPlayer()
