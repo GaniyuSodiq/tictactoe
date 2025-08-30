@@ -38,8 +38,9 @@ function Gameboard() {
     console.log(displayBoard)
 
     const wins = (playerName, playerToken)=>{
-        console.log(`                                           `)
+        console.log(`🍾🎈🥂🎆 HURRAY HURRAY HURRAY 🍾🎈🥂🎆`)
         console.log(`🥇🥇🥇 ${playerName} WITH TOKEN: ${playerToken} IS THE WINNER 🥇🥇🥇`)
+        printBoard()
         gameboard.forEach(row => {
             row.forEach(column => {
                 column.addToken(null)
@@ -242,7 +243,7 @@ function Gameboard() {
                                     }
                                 })
                             })
-                            console.log(draw)
+                            // console.log(draw)
                             if (draw == 0) {
                                 console.log(`                                           `)
                                 console.log(` 🫂🫂🫂 THIS ROUND IS A DRAW!!! 🫂🫂🫂`)
@@ -267,7 +268,7 @@ function Gameboard() {
 }
 
 function players(playerOne = "PLAYER ONE", playerTwo = "PLAYER TWO") {
-    const player = [{ name: playerOne, token: "X" }, { name: playerTwo, token: "O" }]
+    const player = [{ name: playerOne, token: "✖️" }, { name: playerTwo, token: "⭕" }]
     return { player }
 }
 
@@ -283,22 +284,14 @@ const switcher = (function passPlayers() {
     return { switchPlayer, getActivePlayer }
 })()
 
-//console.log(switcher.switchPlayer().getActivePlayer())
-//console.log(switcher.switchPlayer().getActivePlayer())
 
 function Gamecontroller() {
     const board = Gameboard()
-    // const getPlayers = players()
-    // let activePlayer = getPlayers.player[0]
-    // const switchPlayer = () => {
-    //     activePlayer = activePlayer === getPlayers.player[0] ? getPlayers.player[1] : getPlayers.player[0]
-    // }
     let activeP = switcher.switchPlayer().getActivePlayer()
     const getSwitchPlayer = () => activeP = switcher.switchPlayer().getActivePlayer()
 
     const playRound = (position) => {
-        console.log(`                                           `)
-        console.log(`${activeP.name} PLAYED ${position} WITH ${activeP.token}`)
+        console.log(`😊 ${activeP.name} PLAYED INTO POSITION ${position} WITH ${activeP.token}`)
         board.dropToken(activeP.token, position)
         board.printBoard()
         getSwitchPlayer()
@@ -311,9 +304,3 @@ function Gamecontroller() {
 
 const game = Gamecontroller()
 
-// game.dropToken("X", 3)
-
-// game.printBoard()
-
-// const playrs = getPlayers("Wale", "Jade")
-// console.log(playrs.player[0].name)
