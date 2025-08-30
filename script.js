@@ -21,8 +21,9 @@ function Cell() {
 function Gameboard() {
     const rows = 3
     const columns = 3
-    const gameboard = []
     let positionAdder = 0
+    let roundAdder = 1
+    const gameboard = []
 
     for (let i = 0; i < rows; i++) {
         gameboard.push([])
@@ -35,6 +36,19 @@ function Gameboard() {
 
     const displayBoard = gameboard.map(row => row.map(cell => cell.getPosition()))
     console.log(displayBoard)
+
+    const wins = (playerName, playerToken)=>{
+        console.log(`                                           `)
+        console.log(`🥇🥇🥇 ${playerName} WITH TOKEN: ${playerToken} IS THE WINNER 🥇🥇🥇`)
+        gameboard.forEach(row => {
+            row.forEach(column => {
+                column.addToken(null)
+            })
+        })
+        roundAdder++
+        console.log(`                                           `)
+        console.log(`📍📍📍 WE ARE NOW IN ROUND ${roundAdder} 📍📍📍`)
+    }
 
     const dropToken = (token, pos) => {
         gameboard.forEach(row => {
@@ -51,20 +65,19 @@ function Gameboard() {
                                 if ((column.getPosition() == 1 && column.getToken() == token)) {
                                     r1++
                                     if (r1 == 3) {
-                                        console.log(`${switcher.getActivePlayer().name} with Token: ${token} is the winner`)
-
+                                        wins(switcher.getActivePlayer().name, token)
                                     }
                                 }
                                 if ((column.getPosition() == 2 && column.getToken() == token)) {
                                     r1++
                                     if (r1 == 3) {
-                                        console.log(`We have a winner: ${token} wins`)
+                                        wins(switcher.getActivePlayer().name, token)
                                     }
                                 }
                                 if ((column.getPosition() == 3 && column.getToken() == token)) {
                                     r1++
                                     if (r1 == 3) {
-                                        console.log(`We have a winner: ${token} wins`)
+                                        wins(switcher.getActivePlayer().name, token)
                                     }
                                 }
                                 // ROW 1 ENDS
@@ -73,19 +86,19 @@ function Gameboard() {
                                 if ((column.getPosition() == 4 && column.getToken() == token)) {
                                     r2++
                                     if (r2 == 3) {
-                                        console.log(`We have a winner: ${token} wins`)
+                                        wins(switcher.getActivePlayer().name, token)
                                     }
                                 }
                                 if ((column.getPosition() == 5 && column.getToken() == token)) {
                                     r2++
                                     if (r2 == 3) {
-                                        console.log(`We have a winner: ${token} wins`)
+                                        wins(switcher.getActivePlayer().name, token)
                                     }
                                 }
                                 if ((column.getPosition() == 6 && column.getToken() == token)) {
                                     r2++
                                     if (r2 == 3) {
-                                        console.log(`We have a winner: ${token} wins`)
+                                        wins(switcher.getActivePlayer().name, token)
                                     }
                                 }
                                 // ROW 2 ENDS
@@ -94,19 +107,19 @@ function Gameboard() {
                                 if ((column.getPosition() == 7 && column.getToken() == token)) {
                                     r3++
                                     if (r3 == 3) {
-                                        console.log(`We have a winner: ${token} wins`)
+                                        wins(switcher.getActivePlayer().name, token)
                                     }
                                 }
                                 if ((column.getPosition() == 8 && column.getToken() == token)) {
                                     r3++
                                     if (r3 == 3) {
-                                        console.log(`We have a winner: ${token} wins`)
+                                        wins(switcher.getActivePlayer().name, token)
                                     }
                                 }
                                 if ((column.getPosition() == 9 && column.getToken() == token)) {
                                     r3++
                                     if (r3 == 3) {
-                                        console.log(`We have a winner: ${token} wins`)
+                                        wins(switcher.getActivePlayer().name, token)
                                     }
                                 }
                                 // ROW 3 ENDS
@@ -115,19 +128,19 @@ function Gameboard() {
                                 if ((column.getPosition() == 1 && column.getToken() == token)) {
                                     c1++
                                     if (c1 == 3) {
-                                        console.log(`We have a winner: ${token} wins`)
+                                        wins(switcher.getActivePlayer().name, token)
                                     }
                                 }
                                 if ((column.getPosition() == 4 && column.getToken() == token)) {
                                     c1++
                                     if (c1 == 3) {
-                                        console.log(`We have a winner: ${token} wins`)
+                                        wins(switcher.getActivePlayer().name, token)
                                     }
                                 }
                                 if ((column.getPosition() == 7 && column.getToken() == token)) {
                                     c1++
                                     if (c1 == 3) {
-                                        console.log(`We have a winner: ${token} wins`)
+                                        wins(switcher.getActivePlayer().name, token)
                                     }
                                 }
                                 // COLUMN 1 ENDS
@@ -136,19 +149,19 @@ function Gameboard() {
                                 if ((column.getPosition() == 2 && column.getToken() == token)) {
                                     c2++
                                     if (c2 == 3) {
-                                        console.log(`We have a winner: ${token} wins`)
+                                        wins(switcher.getActivePlayer().name, token)
                                     }
                                 }
                                 if ((column.getPosition() == 5 && column.getToken() == token)) {
                                     c2++
                                     if (c2 == 3) {
-                                        console.log(`We have a winner: ${token} wins`)
+                                        wins(switcher.getActivePlayer().name, token)
                                     }
                                 }
                                 if ((column.getPosition() == 8 && column.getToken() == token)) {
                                     c2++
                                     if (c2 == 3) {
-                                        console.log(`We have a winner: ${token} wins`)
+                                        wins(switcher.getActivePlayer().name, token)
                                     }
                                 }
                                 // COLUMN 2 ENDS
@@ -157,19 +170,19 @@ function Gameboard() {
                                 if ((column.getPosition() == 3 && column.getToken() == token)) {
                                     c3++
                                     if (c3 == 3) {
-                                        console.log(`We have a winner: ${token} wins`)
+                                        wins(switcher.getActivePlayer().name, token)
                                     }
                                 }
                                 if ((column.getPosition() == 6 && column.getToken() == token)) {
                                     c3++
                                     if (c3 == 3) {
-                                        console.log(`We have a winner: ${token} wins`)
+                                        wins(switcher.getActivePlayer().name, token)
                                     }
                                 }
                                 if ((column.getPosition() == 9 && column.getToken() == token)) {
                                     c3++
                                     if (c3 == 3) {
-                                        console.log(`We have a winner: ${token} wins`)
+                                        wins(switcher.getActivePlayer().name, token)
                                     }
                                 }
                                 // COLUMN 3 ENDS
@@ -178,19 +191,19 @@ function Gameboard() {
                                 if ((column.getPosition() == 1 && column.getToken() == token)) {
                                     d1++
                                     if (d1 == 3) {
-                                        console.log(`We have a winner: ${token} wins`)
+                                        wins(switcher.getActivePlayer().name, token)
                                     }
                                 }
                                 if ((column.getPosition() == 5 && column.getToken() == token)) {
                                     d1++
                                     if (d1 == 3) {
-                                        console.log(`We have a winner: ${token} wins`)
+                                        wins(switcher.getActivePlayer().name, token)
                                     }
                                 }
                                 if ((column.getPosition() == 9 && column.getToken() == token)) {
                                     d1++
                                     if (d1 == 3) {
-                                        console.log(`We have a winner: ${token} wins`)
+                                        wins(switcher.getActivePlayer().name, token)
                                     }
                                 }
                                 // DIAGONAL 1 ENDS
@@ -199,19 +212,19 @@ function Gameboard() {
                                 if ((column.getPosition() == 3 && column.getToken() == token)) {
                                     d2++
                                     if (d2 == 3) {
-                                        console.log(`We have a winner: ${token} wins`)
+                                        wins(switcher.getActivePlayer().name, token)
                                     }
                                 }
                                 if ((column.getPosition() == 5 && column.getToken() == token)) {
                                     d2++
                                     if (d2 == 3) {
-                                        console.log(`We have a winner: ${token} wins`)
+                                        wins(switcher.getActivePlayer().name, token)
                                     }
                                 }
                                 if ((column.getPosition() == 7 && column.getToken() == token)) {
                                     d2++
                                     if (d2 == 3) {
-                                        console.log(`We have a winner: ${token} wins`)
+                                        wins(switcher.getActivePlayer().name, token)
                                     }
                                 }
                                 // DIAGONAL 2 ENDS
@@ -223,19 +236,21 @@ function Gameboard() {
                         const drawer = function drawFinder() {
                             let draw = 0
                             gameboard.forEach(row => {
-                                    row.forEach(column => {
-                                        if (column.getToken() == null) {
-                                            draw++
-                                        }
-                                    })
+                                row.forEach(column => {
+                                    if (column.getToken() == null) {
+                                        draw++
+                                    }
+                                })
                             })
                             console.log(draw)
-                            if(draw == 0){
-                                console.log(`THIS ROUND IS A DRAW!!!`)
+                            if (draw == 0) {
+                                console.log(`                                           `)
+                                console.log(` 🫂🫂🫂 THIS ROUND IS A DRAW!!! 🫂🫂🫂`)
                             }
                         }()
                     } else {
-                        console.log(`Position: ${pos} is not empty, play into another position`)
+                        console.log(`                                           `)
+                        console.log(`✋ POSITION: ${pos} IS NOT EMPTY, PLAY INTO ANOTHER POSITION`)
                         switcher.switchPlayer()
                     }
                 }
@@ -251,7 +266,7 @@ function Gameboard() {
     return { printBoard, dropToken }
 }
 
-function players(playerOne = "Player One", playerTwo = "Player Two") {
+function players(playerOne = "PLAYER ONE", playerTwo = "PLAYER TWO") {
     const player = [{ name: playerOne, token: "X" }, { name: playerTwo, token: "O" }]
     return { player }
 }
@@ -282,11 +297,13 @@ function Gamecontroller() {
     const getSwitchPlayer = () => activeP = switcher.switchPlayer().getActivePlayer()
 
     const playRound = (position) => {
-        console.log(`${activeP.name} played into ${position} with ${activeP.token}`)
+        console.log(`                                           `)
+        console.log(`${activeP.name} PLAYED ${position} WITH ${activeP.token}`)
         board.dropToken(activeP.token, position)
         board.printBoard()
         getSwitchPlayer()
-        console.log(`Next player is ${activeP.name}`)
+        console.log(`                                           `)
+        console.log(`🎭 NEXT PLAYER IS ${activeP.name}`)
     }
 
     return { playRound }
