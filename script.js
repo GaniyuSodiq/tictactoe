@@ -31,9 +31,54 @@ const Tictactoe = (function () {
     // statuses
     const playStatus = container.querySelector("#play-status")
     const roundStatus = container.querySelector("#round-status")
+    // players score
+    const player1 = container.querySelector("#player1-score-value")
+    const player2 = container.querySelector("#player2-score-value")
+    
 
+    box1.addEventListener("click", () => {
+        console.log("button 1 is pressed")
+        if (box7.textContent === "") {
+            box7.textContent = switcher.getActivePlayer().token
+        }
+        console.log(`😊 ${switcher.getActivePlayer().name} PLAYED INTO POSITION 7 WITH ${switcher.getActivePlayer().token}`)
+        board.dropToken(switcher.getActivePlayer().token, 1)
+        board.printBoard()
+        switcher.switchPlayer()
+        console.log(`                                           `)
+        console.log(`🎭 NEXT PLAYER IS ${switcher.getActivePlayer().name}`)
+        playStatus.textContent = `It's ${switcher.getActivePlayer().name}'s turn`
+    })
 
-    box7.addEventListener("click", () => {
+        box2.addEventListener("click", () => {
+        console.log("button 2 is pressed")
+        if (box7.textContent === "") {
+            box7.textContent = switcher.getActivePlayer().token
+        }
+        console.log(`😊 ${switcher.getActivePlayer().name} PLAYED INTO POSITION 7 WITH ${switcher.getActivePlayer().token}`)
+        board.dropToken(switcher.getActivePlayer().token, 2)
+        board.printBoard()
+        switcher.switchPlayer()
+        console.log(`                                           `)
+        console.log(`🎭 NEXT PLAYER IS ${switcher.getActivePlayer().name}`)
+        playStatus.textContent = `It's ${switcher.getActivePlayer().name}'s turn`
+    })
+    
+        box3.addEventListener("click", () => {
+        console.log("button 3 is pressed")
+        if (box7.textContent === "") {
+            box7.textContent = switcher.getActivePlayer().token
+        }
+        console.log(`😊 ${switcher.getActivePlayer().name} PLAYED INTO POSITION 7 WITH ${switcher.getActivePlayer().token}`)
+        board.dropToken(switcher.getActivePlayer().token, 3)
+        board.printBoard()
+        switcher.switchPlayer()
+        console.log(`                                           `)
+        console.log(`🎭 NEXT PLAYER IS ${switcher.getActivePlayer().name}`)
+        playStatus.textContent = `It's ${switcher.getActivePlayer().name}'s turn`
+    })
+
+        box7.addEventListener("click", () => {
         console.log("button 7 is pressed")
         if (box7.textContent === "") {
             box7.textContent = switcher.getActivePlayer().token
@@ -46,6 +91,92 @@ const Tictactoe = (function () {
         console.log(`🎭 NEXT PLAYER IS ${switcher.getActivePlayer().name}`)
         playStatus.textContent = `It's ${switcher.getActivePlayer().name}'s turn`
     })
+
+        box7.addEventListener("click", () => {
+        console.log("button 7 is pressed")
+        if (box7.textContent === "") {
+            box7.textContent = switcher.getActivePlayer().token
+        }
+        console.log(`😊 ${switcher.getActivePlayer().name} PLAYED INTO POSITION 7 WITH ${switcher.getActivePlayer().token}`)
+        board.dropToken(switcher.getActivePlayer().token, 7)
+        board.printBoard()
+        switcher.switchPlayer()
+        console.log(`                                           `)
+        console.log(`🎭 NEXT PLAYER IS ${switcher.getActivePlayer().name}`)
+        playStatus.textContent = `It's ${switcher.getActivePlayer().name}'s turn`
+    })
+
+        box7.addEventListener("click", () => {
+        console.log("button 7 is pressed")
+        if (box7.textContent === "") {
+            box7.textContent = switcher.getActivePlayer().token
+        }
+        console.log(`😊 ${switcher.getActivePlayer().name} PLAYED INTO POSITION 7 WITH ${switcher.getActivePlayer().token}`)
+        board.dropToken(switcher.getActivePlayer().token, 7)
+        board.printBoard()
+        switcher.switchPlayer()
+        console.log(`                                           `)
+        console.log(`🎭 NEXT PLAYER IS ${switcher.getActivePlayer().name}`)
+        playStatus.textContent = `It's ${switcher.getActivePlayer().name}'s turn`
+    })
+
+        box7.addEventListener("click", () => {
+        console.log("button 7 is pressed")
+        if (box7.textContent === "") {
+            box7.textContent = switcher.getActivePlayer().token
+        }
+        console.log(`😊 ${switcher.getActivePlayer().name} PLAYED INTO POSITION 7 WITH ${switcher.getActivePlayer().token}`)
+        board.dropToken(switcher.getActivePlayer().token, 7)
+        board.printBoard()
+        switcher.switchPlayer()
+        console.log(`                                           `)
+        console.log(`🎭 NEXT PLAYER IS ${switcher.getActivePlayer().name}`)
+        playStatus.textContent = `It's ${switcher.getActivePlayer().name}'s turn`
+    })
+
+        box7.addEventListener("click", () => {
+        console.log("button 7 is pressed")
+        if (box7.textContent === "") {
+            box7.textContent = switcher.getActivePlayer().token
+        }
+        console.log(`😊 ${switcher.getActivePlayer().name} PLAYED INTO POSITION 7 WITH ${switcher.getActivePlayer().token}`)
+        board.dropToken(switcher.getActivePlayer().token, 7)
+        board.printBoard()
+        switcher.switchPlayer()
+        console.log(`                                           `)
+        console.log(`🎭 NEXT PLAYER IS ${switcher.getActivePlayer().name}`)
+        playStatus.textContent = `It's ${switcher.getActivePlayer().name}'s turn`
+    })
+
+        box7.addEventListener("click", () => {
+        console.log("button 7 is pressed")
+        if (box7.textContent === "") {
+            box7.textContent = switcher.getActivePlayer().token
+        }
+        console.log(`😊 ${switcher.getActivePlayer().name} PLAYED INTO POSITION 7 WITH ${switcher.getActivePlayer().token}`)
+        board.dropToken(switcher.getActivePlayer().token, 7)
+        board.printBoard()
+        switcher.switchPlayer()
+        console.log(`                                           `)
+        console.log(`🎭 NEXT PLAYER IS ${switcher.getActivePlayer().name}`)
+        playStatus.textContent = `It's ${switcher.getActivePlayer().name}'s turn`
+    })
+
+        box7.addEventListener("click", () => {
+        console.log("button 7 is pressed")
+        if (box7.textContent === "") {
+            box7.textContent = switcher.getActivePlayer().token
+        }
+        console.log(`😊 ${switcher.getActivePlayer().name} PLAYED INTO POSITION 7 WITH ${switcher.getActivePlayer().token}`)
+        board.dropToken(switcher.getActivePlayer().token, 7)
+        board.printBoard()
+        switcher.switchPlayer()
+        console.log(`                                           `)
+        console.log(`🎭 NEXT PLAYER IS ${switcher.getActivePlayer().name}`)
+        playStatus.textContent = `It's ${switcher.getActivePlayer().name}'s turn`
+    })
+
+
 
     // CELL TO CONTROL THE CONTENT IN EACH BOX
     function Cell() {
@@ -97,6 +228,7 @@ const Tictactoe = (function () {
                 })
             })
             roundAdder++
+            roundStatus.textContent = `Round ${roundAdder}`
             console.log(`                                           `)
             console.log(`📍📍📍 WE ARE NOW IN ROUND ${roundAdder} 📍📍📍`)
         }
@@ -321,8 +453,6 @@ const Tictactoe = (function () {
         const player = [{ name: playerOne, token: "✖️" }, { name: playerTwo, token: "⭕" }]
         return { player }
     }
-
-
 
     function Gamecontroller() {
         //const board = Gameboard()

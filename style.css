@@ -31,7 +31,7 @@ body{
     font-size: small;
 }
 
-.player-score-value{
+#player1-score-value, #player2-score-value{
     font-size: xx-large;
 }
 
