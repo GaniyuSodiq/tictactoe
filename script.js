@@ -1,8 +1,24 @@
 const Tictactoe = (function () {
 
+    const board = Gameboard()
+
+    const switcher = (function passPlayers() {
+        const getPlayers = players()
+        let activePlayer = getPlayers.player[1]
+        const getActivePlayer = () => activePlayer
+        const switchPlayer = () => {
+            activePlayer = activePlayer === getPlayers.player[0] ? getPlayers.player[1] : getPlayers.player[0]
+            return { getActivePlayer }
+        }
+        return { switchPlayer, getActivePlayer }
+    })()
+
+    let activeP = switcher.switchPlayer().getActivePlayer()
+    const getSwitchPlayer = () => activeP = switcher.switchPlayer().getActivePlayer()
+
     // CACHE DOM
     const container = document.querySelector("#container")
-
+    // btns
     const box1 = container.querySelector("#column-one")
     const box2 = container.querySelector("#column-two")
     const box3 = container.querySelector("#column-three")
@@ -12,10 +28,23 @@ const Tictactoe = (function () {
     const box7 = container.querySelector("#column-seven")
     const box8 = container.querySelector("#column-eight")
     const box9 = container.querySelector("#column-nine")
+    // statuses
+    const playStatus = container.querySelector("#play-status")
+    const roundStatus = container.querySelector("#round-status")
 
-    box7.addEventListener("click", ()=>{
+
+    box7.addEventListener("click", () => {
         console.log("button 7 is pressed")
-        dropToken(switcher.getActivePlayer().name, 7)
+        if (box7.textContent === "") {
+            box7.textContent = switcher.getActivePlayer().token
+        }
+        console.log(`😊 ${switcher.getActivePlayer().name} PLAYED INTO POSITION 7 WITH ${switcher.getActivePlayer().token}`)
+        board.dropToken(switcher.getActivePlayer().token, 7)
+        board.printBoard()
+        switcher.switchPlayer()
+        console.log(`                                           `)
+        console.log(`🎭 NEXT PLAYER IS ${switcher.getActivePlayer().name}`)
+        playStatus.textContent = `It's ${switcher.getActivePlayer().name}'s turn`
     })
 
     // CELL TO CONTROL THE CONTENT IN EACH BOX
@@ -72,7 +101,7 @@ const Tictactoe = (function () {
             console.log(`📍📍📍 WE ARE NOW IN ROUND ${roundAdder} 📍📍📍`)
         }
 
-        const dropToken = (token, pos) => {
+        function dropToken(token, pos) {
             gameboard.forEach(row => {
                 row.forEach(column => {
                     if (column.getPosition() == pos) {
@@ -288,27 +317,17 @@ const Tictactoe = (function () {
         return { printBoard, dropToken }
     }
 
-    function players(playerOne = "PLAYER ONE", playerTwo = "PLAYER TWO") {
+    function players(playerOne = "player One", playerTwo = "Player Two") {
         const player = [{ name: playerOne, token: "✖️" }, { name: playerTwo, token: "⭕" }]
         return { player }
     }
 
-    const switcher = (function passPlayers() {
-        const getPlayers = players()
-        let activePlayer = getPlayers.player[1]
-        const getActivePlayer = () => activePlayer
-        const switchPlayer = () => {
-            activePlayer = activePlayer === getPlayers.player[0] ? getPlayers.player[1] : getPlayers.player[0]
-            return { getActivePlayer }
-        }
-        return { switchPlayer, getActivePlayer }
-    })()
 
 
     function Gamecontroller() {
-        const board = Gameboard()
-        let activeP = switcher.switchPlayer().getActivePlayer()
-        const getSwitchPlayer = () => activeP = switcher.switchPlayer().getActivePlayer()
+        //const board = Gameboard()
+        // let activeP = switcher.switchPlayer().getActivePlayer()
+        // const getSwitchPlayer = () => activeP = switcher.switchPlayer().getActivePlayer()
 
         const playRound = (position) => {
             console.log(`😊 ${activeP.name} PLAYED INTO POSITION ${position} WITH ${activeP.token}`)
@@ -322,7 +341,8 @@ const Tictactoe = (function () {
         return { playRound }
     }
 
-    const game = Gamecontroller()
+    return { Gamecontroller }
+    // const game = Gamecontroller()
 })()
 
 

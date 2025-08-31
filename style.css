@@ -35,11 +35,12 @@ body{
     font-size: xx-large;
 }
 
-.play-status, .round-status{
+#play-status, #round-status{
     width: 100%;
     text-align: center;
     display: block;
     font-size: small;
+    margin-top: 10px;
 }
 
 #game-board{
