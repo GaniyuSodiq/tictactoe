@@ -7,3 +7,42 @@ body{
     background-color: #333;
     color: #eff;
 }
+
+#container{
+    width: 300px;
+    margin: 0 auto;
+}
+
+.score-board{
+    display: flex;
+    justify-content: space-between;
+}
+
+.play-status, .round-status{
+    width: 100%;
+    text-align: center;
+    display: block;
+}
+
+#game-board{
+    margin: 30px auto;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+}
+
+.column{
+    border: #eff solid 3px;
+
+}
+
+.column button{
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    font-size: xx-large;
+    text-align: center;
+    background-color: #333;
+}
