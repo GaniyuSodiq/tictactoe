@@ -35,6 +35,8 @@ const Tictactoe = (function () {
     const player1 = container.querySelector("#player1-score-value")
     const player2 = container.querySelector("#player2-score-value")
 
+    let player1Score = 0
+    let player2Score = 0
 
     box1.addEventListener("click", () => {
         console.log("button 1 is pressed")
@@ -236,12 +238,22 @@ const Tictactoe = (function () {
 
         resetBtn.addEventListener("click", resetBoard)
 
-        const wins = (playerName, playerToken) => {
+        const wins = (playerName, playerToken, playerScore) => {
             console.log(`🍾🎈🥂🎆 HURRAY HURRAY HURRAY 🍾🎈🥂🎆`)
             console.log(`🥇🥇🥇 ${playerName} WITH TOKEN: ${playerToken} IS THE WINNER 🥇🥇🥇`)
             printBoard()
             roundStatus.textContent = `🥇 ${playerName} WITH TOKEN: ${playerToken} IS THE WINNER 🥇`
             roundAdder++
+
+            console.log(`CURRENT PLAYER SCORE ${playerScore}`)
+
+            if (playerToken == "⭕") {
+                player2.textContent = playerScore
+                console.log(`CURRENT PLAYER SCORE in if ${playerScore}`)
+            } else {
+                player1.textContent = playerScore
+                console.log(`CURRENT PLAYER SCORE in if else ${playerScore}`)
+            }
 
             box1.disabled = true
             box2.disabled = true
@@ -272,19 +284,22 @@ const Tictactoe = (function () {
                                     if ((column.getPosition() == 1 && column.getToken() == token)) {
                                         r1++
                                         if (r1 == 3) {
-                                            wins(switcher.getActivePlayer().name, token)
+                                            switcher.getActivePlayer().score += 1
+                                            wins(switcher.getActivePlayer().name, token, switcher.getActivePlayer().score)
                                         }
                                     }
                                     if ((column.getPosition() == 2 && column.getToken() == token)) {
                                         r1++
                                         if (r1 == 3) {
-                                            wins(switcher.getActivePlayer().name, token)
+                                            switcher.getActivePlayer().score += 1
+                                            wins(switcher.getActivePlayer().name, token, switcher.getActivePlayer().score)
                                         }
                                     }
                                     if ((column.getPosition() == 3 && column.getToken() == token)) {
                                         r1++
                                         if (r1 == 3) {
-                                            wins(switcher.getActivePlayer().name, token)
+                                            switcher.getActivePlayer().score += 1
+                                            wins(switcher.getActivePlayer().name, token, switcher.getActivePlayer().score)
                                         }
                                     }
                                     // ROW 1 ENDS
@@ -293,19 +308,22 @@ const Tictactoe = (function () {
                                     if ((column.getPosition() == 4 && column.getToken() == token)) {
                                         r2++
                                         if (r2 == 3) {
-                                            wins(switcher.getActivePlayer().name, token)
+                                            switcher.getActivePlayer().score += 1
+                                            wins(switcher.getActivePlayer().name, token, switcher.getActivePlayer().score)
                                         }
                                     }
                                     if ((column.getPosition() == 5 && column.getToken() == token)) {
                                         r2++
                                         if (r2 == 3) {
-                                            wins(switcher.getActivePlayer().name, token)
+                                            switcher.getActivePlayer().score += 1
+                                            wins(switcher.getActivePlayer().name, token, switcher.getActivePlayer().score)
                                         }
                                     }
                                     if ((column.getPosition() == 6 && column.getToken() == token)) {
                                         r2++
                                         if (r2 == 3) {
-                                            wins(switcher.getActivePlayer().name, token)
+                                            switcher.getActivePlayer().score += 1
+                                            wins(switcher.getActivePlayer().name, token, switcher.getActivePlayer().score)
                                         }
                                     }
                                     // ROW 2 ENDS
@@ -314,19 +332,22 @@ const Tictactoe = (function () {
                                     if ((column.getPosition() == 7 && column.getToken() == token)) {
                                         r3++
                                         if (r3 == 3) {
-                                            wins(switcher.getActivePlayer().name, token)
+                                            switcher.getActivePlayer().score += 1
+                                            wins(switcher.getActivePlayer().name, token, switcher.getActivePlayer().score)
                                         }
                                     }
                                     if ((column.getPosition() == 8 && column.getToken() == token)) {
                                         r3++
                                         if (r3 == 3) {
-                                            wins(switcher.getActivePlayer().name, token)
+                                            switcher.getActivePlayer().score += 1
+                                            wins(switcher.getActivePlayer().name, token, switcher.getActivePlayer().score)
                                         }
                                     }
                                     if ((column.getPosition() == 9 && column.getToken() == token)) {
                                         r3++
                                         if (r3 == 3) {
-                                            wins(switcher.getActivePlayer().name, token)
+                                            switcher.getActivePlayer().score += 1
+                                            wins(switcher.getActivePlayer().name, token, switcher.getActivePlayer().score)
                                         }
                                     }
                                     // ROW 3 ENDS
@@ -335,19 +356,22 @@ const Tictactoe = (function () {
                                     if ((column.getPosition() == 1 && column.getToken() == token)) {
                                         c1++
                                         if (c1 == 3) {
-                                            wins(switcher.getActivePlayer().name, token)
+                                            switcher.getActivePlayer().score += 1
+                                            wins(switcher.getActivePlayer().name, token, switcher.getActivePlayer().score)
                                         }
                                     }
                                     if ((column.getPosition() == 4 && column.getToken() == token)) {
                                         c1++
                                         if (c1 == 3) {
-                                            wins(switcher.getActivePlayer().name, token)
+                                            switcher.getActivePlayer().score += 1
+                                            wins(switcher.getActivePlayer().name, token, switcher.getActivePlayer().score)
                                         }
                                     }
                                     if ((column.getPosition() == 7 && column.getToken() == token)) {
                                         c1++
                                         if (c1 == 3) {
-                                            wins(switcher.getActivePlayer().name, token)
+                                            switcher.getActivePlayer().score += 1
+                                            wins(switcher.getActivePlayer().name, token, switcher.getActivePlayer().score)
                                         }
                                     }
                                     // COLUMN 1 ENDS
@@ -356,19 +380,22 @@ const Tictactoe = (function () {
                                     if ((column.getPosition() == 2 && column.getToken() == token)) {
                                         c2++
                                         if (c2 == 3) {
-                                            wins(switcher.getActivePlayer().name, token)
+                                            switcher.getActivePlayer().score += 1
+                                            wins(switcher.getActivePlayer().name, token, switcher.getActivePlayer().score)
                                         }
                                     }
                                     if ((column.getPosition() == 5 && column.getToken() == token)) {
                                         c2++
                                         if (c2 == 3) {
-                                            wins(switcher.getActivePlayer().name, token)
+                                            switcher.getActivePlayer().score += 1
+                                            wins(switcher.getActivePlayer().name, token, switcher.getActivePlayer().score)
                                         }
                                     }
                                     if ((column.getPosition() == 8 && column.getToken() == token)) {
                                         c2++
                                         if (c2 == 3) {
-                                            wins(switcher.getActivePlayer().name, token)
+                                            switcher.getActivePlayer().score += 1
+                                            wins(switcher.getActivePlayer().name, token, switcher.getActivePlayer().score)
                                         }
                                     }
                                     // COLUMN 2 ENDS
@@ -377,19 +404,22 @@ const Tictactoe = (function () {
                                     if ((column.getPosition() == 3 && column.getToken() == token)) {
                                         c3++
                                         if (c3 == 3) {
-                                            wins(switcher.getActivePlayer().name, token)
+                                            switcher.getActivePlayer().score += 1
+                                            wins(switcher.getActivePlayer().name, token, switcher.getActivePlayer().score)
                                         }
                                     }
                                     if ((column.getPosition() == 6 && column.getToken() == token)) {
                                         c3++
                                         if (c3 == 3) {
-                                            wins(switcher.getActivePlayer().name, token)
+                                            switcher.getActivePlayer().score += 1
+                                            wins(switcher.getActivePlayer().name, token, switcher.getActivePlayer().score)
                                         }
                                     }
                                     if ((column.getPosition() == 9 && column.getToken() == token)) {
                                         c3++
                                         if (c3 == 3) {
-                                            wins(switcher.getActivePlayer().name, token)
+                                            switcher.getActivePlayer().score += 1
+                                            wins(switcher.getActivePlayer().name, token, switcher.getActivePlayer().score)
                                         }
                                     }
                                     // COLUMN 3 ENDS
@@ -398,19 +428,22 @@ const Tictactoe = (function () {
                                     if ((column.getPosition() == 1 && column.getToken() == token)) {
                                         d1++
                                         if (d1 == 3) {
-                                            wins(switcher.getActivePlayer().name, token)
+                                            switcher.getActivePlayer().score += 1
+                                            wins(switcher.getActivePlayer().name, token, switcher.getActivePlayer().score)
                                         }
                                     }
                                     if ((column.getPosition() == 5 && column.getToken() == token)) {
                                         d1++
                                         if (d1 == 3) {
-                                            wins(switcher.getActivePlayer().name, token)
+                                            switcher.getActivePlayer().score += 1
+                                            wins(switcher.getActivePlayer().name, token, switcher.getActivePlayer().score)
                                         }
                                     }
                                     if ((column.getPosition() == 9 && column.getToken() == token)) {
                                         d1++
                                         if (d1 == 3) {
-                                            wins(switcher.getActivePlayer().name, token)
+                                            switcher.getActivePlayer().score += 1
+                                            wins(switcher.getActivePlayer().name, token, switcher.getActivePlayer().score)
                                         }
                                     }
                                     // DIAGONAL 1 ENDS
@@ -419,19 +452,22 @@ const Tictactoe = (function () {
                                     if ((column.getPosition() == 3 && column.getToken() == token)) {
                                         d2++
                                         if (d2 == 3) {
-                                            wins(switcher.getActivePlayer().name, token)
+                                            switcher.getActivePlayer().score += 1
+                                            wins(switcher.getActivePlayer().name, token, switcher.getActivePlayer().score)
                                         }
                                     }
                                     if ((column.getPosition() == 5 && column.getToken() == token)) {
                                         d2++
                                         if (d2 == 3) {
-                                            wins(switcher.getActivePlayer().name, token)
+                                            switcher.getActivePlayer().score += 1
+                                            wins(switcher.getActivePlayer().name, token, switcher.getActivePlayer().score)
                                         }
                                     }
                                     if ((column.getPosition() == 7 && column.getToken() == token)) {
                                         d2++
                                         if (d2 == 3) {
-                                            wins(switcher.getActivePlayer().name, token)
+                                            switcher.getActivePlayer().score += 1
+                                            wins(switcher.getActivePlayer().name, token, switcher.getActivePlayer().score)
                                         }
                                     }
                                     // DIAGONAL 2 ENDS
@@ -492,7 +528,7 @@ const Tictactoe = (function () {
     }
 
     function players(playerOne = "PLAYER ONE", playerTwo = "PLAYER TWO") {
-        const player = [{ name: playerOne, token: "✖️" }, { name: playerTwo, token: "⭕" }]
+        const player = [{ name: playerOne, token: "✖️", score: 0 }, { name: playerTwo, token: "⭕", score: 0 }]
         return { player }
     }
 
