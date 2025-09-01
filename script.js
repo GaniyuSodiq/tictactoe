@@ -491,22 +491,16 @@ const Tictactoe = (function () {
                                     console.log(` 🫂🫂🫂 THIS ROUND IS A DRAW!!! 🫂🫂🫂`)
                                     roundStatus.textContent = `🫂🫂🫂 THIS ROUND IS A DRAW!!! 🫂🫂🫂`
 
-                                    setTimeout(() => {
-                                        box1.textContent = ""
-                                        box2.textContent = ""
-                                        box3.textContent = ""
-                                        box4.textContent = ""
-                                        box5.textContent = ""
-                                        box6.textContent = ""
-                                        box7.textContent = ""
-                                        box8.textContent = ""
-                                        box9.textContent = ""
-                                        gameboard.forEach(row => {
-                                            row.forEach(column => {
-                                                column.addToken(null)
-                                            })
-                                        })
-                                    }, 5000);
+                                    box1.disabled = true
+                                    box2.disabled = true
+                                    box3.disabled = true
+                                    box4.disabled = true
+                                    box5.disabled = true
+                                    box6.disabled = true
+                                    box7.disabled = true
+                                    box8.disabled = true
+                                    box9.disabled = true
+
                                 }
                             }()
                         } else {
