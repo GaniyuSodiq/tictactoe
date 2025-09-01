@@ -65,3 +65,12 @@ body{
     text-align: center;
     background-color: #333;
 }
+
+#reset-btn{
+    display: block;
+    background-color: #ee0000;
+    margin: 20px auto;
+    padding: 10px;
+    color: #eff;
+    border-radius: 5px;
+}
